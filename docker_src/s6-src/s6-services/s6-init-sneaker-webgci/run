@@ -36,6 +36,7 @@ export -f set_variable
 config_file_name=$(set_variable "CONFIG_FILE_NAME" "config.json")
 bind_ip=$(set_variable "BIND_IP" "0.0.0.0")
 port=$(set_variable "PORT" "7788")
+timeout=$(set_variable "TIMEOUT" "30")
 
 # Set non-tweakable variables
 working_directory="/config/"
@@ -49,14 +50,6 @@ debug_function env | output_to_log
 # Ensure that the app and config folders are owned by the user from the container.
 lsiown -R abc:users /app/ | output_to_log
 lsiown -R abc:users /config/ | output_to_log
-
-# Check if TIMEOUT environment variable is set and not empty
-if [ -n "$TIMEOUT" ]; then
-  timeout="$TIMEOUT"
-else
-  # Default timeout to 30 if TIMEOUT is not set or empty
-  timeout=30
-fi
 
 # Check if the executable and config file exist
 if [ ! -e "/app/sneaker-linux" ] || [ ! -e "$working_directory/$config_file_name" ]; then

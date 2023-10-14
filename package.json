@@ -73,7 +73,7 @@
     "html-webpack-plugin": "^5.3.2",
     "json5-loader": "^4.0.1",
     "mini-css-extract-plugin": "^2.1.0",
-    "postcss": "^8.3.6",
+    "postcss": "^8.4.31",
     "postcss-cli": "^8.3.1",
     "postcss-fontpath": "^1.0.0",
     "postcss-loader": "^6.1.1",

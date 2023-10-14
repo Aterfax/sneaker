@@ -1,0 +1,20 @@
+{
+    "servers": [
+      {
+        "name": "PGAW",
+        "hostname": "mtm.hoggitworld.com",
+        "port": 42674,
+        "radar_refresh_rate": 2,
+        "enable_friendly_ground_units": true,
+        "enable_enemy_ground_units": true
+      },
+      {
+        "name": "GAW",
+        "hostname": "dcs.hoggitworld.com",
+        "port": 42674,
+        "radar_refresh_rate": 2,
+        "enable_friendly_ground_units": true,
+        "enable_enemy_ground_units": true
+      }
+    ]
+}

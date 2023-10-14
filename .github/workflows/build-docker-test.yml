@@ -48,7 +48,7 @@ jobs:
       - name: Build image only
         uses: docker/build-push-action@v4
         with:
-          context: ./docker_src
+          context: ./
           push: false
 
       - name: Image digest

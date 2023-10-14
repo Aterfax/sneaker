@@ -7,7 +7,7 @@ on:
 
   push:
     branches: [master]
-    
+
   workflow_dispatch:
 
 jobs:
@@ -67,7 +67,7 @@ jobs:
       - name: Build image and push to Docker Hub and GitHub Container Registry
         uses: docker/build-push-action@v4
         with:
-          context: ./docker_src
+          context: ./
           push: true
           tags: |
             aterfax/sneaker-webgci:latest 

@@ -8,7 +8,7 @@ require (
 	github.com/bwmarrin/discordgo v0.28.1
 	github.com/go-chi/chi/v5 v5.0.13
 	github.com/go-chi/cors v1.2.1
-	github.com/urfave/cli/v2 v2.27.2
+	github.com/urfave/cli/v2 v2.27.4
 )
 
 require (
@@ -16,7 +16,7 @@ require (
 	github.com/gorilla/websocket v1.5.0 // indirect
 	github.com/russross/blackfriday/v2 v2.1.0 // indirect
 	github.com/spkg/bom v1.0.0 // indirect
-	github.com/xrash/smetrics v0.0.0-20240312152122-5f08fbb34913 // indirect
+	github.com/xrash/smetrics v0.0.0-20240521201337-686a1a2994c1 // indirect
 	golang.org/x/crypto v0.17.0 // indirect
 	golang.org/x/sys v0.15.0 // indirect
 )

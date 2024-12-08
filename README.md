@@ -50,7 +50,7 @@ Bullseye information for the current cursor position is displayed in the bottom 
 
 ### BRAA
 
-A BRAA line can be drawn by right clicking anywhere on the map and dragging. Additionally if you press the "s" (snap) key while starting the BRAA line on-top of an existing track the starting point will be locked to the tracks position.
+A BRAA line can be drawn by right-clicking anywhere on the map and dragging. Additionally if you press the "s" (snap) key while starting the BRAA line on-top of an existing track the starting point will be locked to the tracks position.
 
 ### Mission Timer & Hack Timers
 

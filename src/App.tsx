@@ -14,6 +14,7 @@ import { Falklands } from "./dcs/maps/Falklands";
 import { Normandy } from "./dcs/maps/Normandy";
 import { TheChannel } from "./dcs/maps/TheChannel";
 import { Nevada } from "./dcs/maps/Nevada";
+import { Afghanistan } from "./dcs/maps/Afghanistan";
 import { Kola } from "./dcs/maps/Kola";
 import { Server, serverStore } from "./stores/ServerStore";
 import { route } from "./util";
@@ -148,6 +149,8 @@ function ServerContainer({ serverName }: { serverName: string }) {
     dcsMap = Normandy;
   } else if (refLat >= 32 && refLat <= 40 && refLng >= -122 && refLng <= -112) {
     dcsMap = Nevada;
+  } else if (refLat >= 28 && refLat <= 39 && refLng >= 60 && refLng <= 74) {
+	dcsMap = Afghanistan;
   } else if (refLat >= 62 && refLat <= 73 && refLng >= -4 && refLng <= 40) {
 	dcsMap = Kola;
   } else {

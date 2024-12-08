@@ -10,12 +10,31 @@ A live example of Sneaker can be viewed [here](https://sneaker.precontact.net/).
 
 ![UI preview](https://i.imgur.com/KB2yzC3.png)
 
-## Installation
+## Conventional installation
 
 1. Download the latest released version [from here](https://github.com/Special-K-s-Flightsim-Bots/sneaker/releases/latest).
 2. Create a configuration file based off the [example](/example.config.json), replacing the required information (and optionally adding multiple servers to the array)
 3. Run the executable with the configuration path: `sneaker.exe --config config.json`
 4. Browse to http://localhost:7788 to access Sneaker GCI. To make the website available over the network, specify the bind parameter like so: `sneaker.exe --config config.json --bind 0.0.0.0:7788`
+
+## Docker installation
+
+A minimum viable product Docker image has been created which can be used as follows:
+
+1. Create a configuration file based off the [example](/example.config.json), replacing the required information (and optionally adding multiple servers to the array) and place in a folder of your choice, e.g. ``/tmp/config/config.json``
+2. Run the Docker command ``docker run -it -p 7788:7788 -e CONFIG_FILE_NAME=config.json -e PORT=7788 -e BIND_IP=0.0.0.0 -e DEBUG=0 -e TIMEOUT=30 -v /tmp/config/:/config/  aterfax/sneaker-webgci``
+3. Browse to http://yourDockerMachineHostname:7788 to access Sneaker GCI.
+
+This image has been created with the requirement that the user bind mount the config file, or a directory with the config file to the Docker container at the path ``/config`` with the ``-v`` Docker argument. The user must also supply the correct config file name given with the ``CONFIG_FILE_NAME`` environment variable all as shown above.
+
+The user can choose to change the internal Sneaker daemon selected port with the ``PORT`` environment variable, but must also match this with the correct ``-p`` Docker arguments if changed.
+
+The bind IP can be changed as required to only bind a particular IP address, or all IP addresses with ``0.0.0.0`` as shown with the ``BIND_IP`` environment variable.
+
+The ``DEBUG`` environment variable can be set to ``1`` or ``0``, to show or hide extended logging info and environment variable dumps to the console.
+
+The ``TIMEOUT`` environment variable can be set to any positive value of seconds in whole numbers and controls how often the running Docker container will check if the Sneaker daemon is still online, and restart it if it isn't.
+
 
 ### Discord Integration
 

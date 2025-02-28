@@ -422,7 +422,7 @@ function MapRadarTracks({
         if (estimatedSpeed(track) < 25) {
           for (const trackGeo of trackPointGeos) {
             if (trackGeo.isVisible()) {
-              trackGeo.hide();
+              trackGeo.show();
             }
           }
         } else {
@@ -886,7 +886,7 @@ export function Map({ dcsMap }: { dcsMap: DCSMap }) {
     if (selectedEntity && selectedTrack) {
       const speed = estimatedSpeed(selectedTrack);
       if (speed < 25) {
-        setSelectedEntityId(null);
+        //setSelectedEntityId(null);
       }
 
       selectedCircle.current.show();

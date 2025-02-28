@@ -40,7 +40,7 @@ export type TrackStoreData = {
 };
 
 export function isTrackVisible(track: Array<EntityTrackPing>): boolean {
-  return track.length >= 3 && estimatedSpeed(track) >= 25;
+  return track.length >= 1 && estimatedSpeed(track) >= 0;
 }
 
 // Returns the estimated speed (in knots) of an entity based on its track

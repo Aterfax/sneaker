@@ -60,7 +60,7 @@ export function checkAlerts() {
     }
 
     const ourTrack = trackState.tracks.get(entityId);
-    if (!ourTrack || estimatedSpeed(ourTrack) < 25) {
+    if (!ourTrack || estimatedSpeed(ourTrack) < 0) {
       continue;
     }
 
@@ -118,7 +118,7 @@ function clearAlerts() {
     for (let [entityId, alerts] of state.alerts) {
       const ourEntity = entities.get(entityId);
       const existingTrack = trackState.tracks.get(entityId);
-      if (!existingTrack || !ourEntity || estimatedSpeed(existingTrack) < 25) {
+      if (!existingTrack || !ourEntity || estimatedSpeed(existingTrack) < 0) {
         result = result.remove(entityId);
 
         for (const alert of alerts) {

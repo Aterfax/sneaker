@@ -2,7 +2,7 @@
 # Sneaker WebGCI Dockerfile.
 #
 #
-FROM golang:alpine3.19 AS build-env
+FROM golang:alpine3.21 AS build-env
 #
 # Copy source from repo submodules
 COPY ./ /sneaker_build

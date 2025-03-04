@@ -655,13 +655,15 @@ export function Map({ dcsMap }: { dcsMap: DCSMap }) {
     map.current = new maptalks.Map(mapContainer.current, {
       hitDetect: false,
       panAnimation: false,
-      dragRotate: false,
-      dragPitch: false,
+      dragRotate: true, // Enable rotation for better 3D view
+      dragPitch: true,  // Enable pitch adjustment
       touchZoom: true,
       touchRotate: false,
       doubleClickZoom: false,
       center: [dcsMap.center[1], dcsMap.center[0]],
       zoom: 8,
+      pitch: 60, // Tilting the map for a 3D effect
+      bearing: 30, // Optional rotation
       seamlessZoom: true,
       fpsOnInteracting: 60,
       attribution: null,

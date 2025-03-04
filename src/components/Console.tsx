@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import * as maptalks from "maptalks";
 import React, { useMemo, useState } from "react";
-import { BiCog, BiNote } from "react-icons/bi";
+import { BiNote, BiCog, BiCompass, BiRefresh } from "react-icons/bi";
 import { entityMetadataStore } from "../stores/EntityMetadataStore";
 import { serverStore, setSelectedEntityId } from "../stores/ServerStore";
 import {
@@ -160,55 +160,35 @@ export function Console({
   setScratchPadOpen: (value: boolean) => void;
   map: maptalks.Map;
 }) {
-  const [selectedTab, setSelectedTab] = useState<
-    null | "search" | "watch" | "draw"
-  >(null);
+  const [selectedTab, setSelectedTab] = useState<null | "search" | "watch" | "draw">(null);
+
+  const resetNorth = () => {
+    if (map) {
+      map.setBearing(0);
+    }
+  };
+
+  const resetPitch = () => {
+    if (map) {
+      map.setPitch(0);
+    }
+  };
 
   return (
     <div className="m-2 absolute flex flex-col bg-gray-200 border border-gray-500 shadow select-none rounded-sm right-0 max-w-3xl max-h-96 overflow-x-auto no-scrollbar">
       <div className="bg-gray-300 text-sm p-2 flex flex-row gap-2">
-        <div>
+        {["search", "watch", "draw"].map((tab) => (
           <button
-            onClick={() => setSelectedTab("search")}
-            className={classNames(
-              "border bg-blue-100 border-blue-300 p-1 rounded-sm shadow-sm",
-              { "bg-blue-200": selectedTab === "search" }
-            )}
+            key={tab}
+            onClick={() => setSelectedTab(tab as "search" | "watch" | "draw")}
+            className={classNames("border bg-blue-100 border-blue-300 p-1 rounded-sm shadow-sm", {
+              "bg-blue-200": selectedTab === tab,
+            })}
           >
-            Search
+            {tab.charAt(0).toUpperCase() + tab.slice(1)}
           </button>
-        </div>
-        <div>
-          <button
-            onClick={() => setSelectedTab("watch")}
-            className={classNames(
-              "border bg-blue-100 border-blue-300 p-1 rounded-sm shadow-sm",
-              { "bg-blue-200": selectedTab === "watch" }
-            )}
-          >
-            Watches
-          </button>
-        </div>
-        <div>
-          <button
-            onClick={() => setSelectedTab("draw")}
-            className={classNames(
-              "border bg-blue-100 border-blue-300 p-1 rounded-sm shadow-sm",
-              { "bg-blue-200": selectedTab === "draw" }
-            )}
-          >
-            Draw
-          </button>
-        </div>
+        ))}
         <div className="ml-auto flex flex-row gap-2">
-          {/* {selectedTab !== null && (
-            <button
-              className="border bg-red-100 border-red-300 p-1 rounded-sm shadow-sm"
-              onClick={() => setSelectedTab(null)}
-            >
-              Close
-            </button>
-          )} */}
           <button
             className="border bg-yellow-300 border-yellow-600 p-1 rounded-sm shadow-sm flex flex-row items-center"
             onClick={() => setScratchPadOpen(true)}
@@ -220,6 +200,18 @@ export function Console({
             onClick={() => setSettingsOpen(true)}
           >
             <BiCog className="inline-block w-4 h-4" />
+          </button>
+          <button
+            className="border bg-green-300 border-green-600 p-1 rounded-sm shadow-sm flex flex-row items-center"
+            onClick={resetNorth}
+          >
+            <BiCompass className="inline-block w-4 h-4" /> Reset North
+          </button>
+          <button
+            className="border bg-purple-300 border-purple-600 p-1 rounded-sm shadow-sm flex flex-row items-center"
+            onClick={resetPitch}
+          >
+            <BiRefresh className="inline-block w-4 h-4" /> Reset Pitch
           </button>
         </div>
       </div>

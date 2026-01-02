@@ -20,7 +20,7 @@ RUN go install github.com/josephspurrier/goversioninfo/cmd/goversioninfo@latest
 RUN yarn && yarn build
 RUN go generate && env GOOS=linux GOARCH=386 go build -o ./sneaker cmd/sneaker-server/main.go && chmod +x sneaker && mv sneaker /app/sneaker
 
-FROM ghcr.io/linuxserver/baseimage-alpine:3.21
+FROM ghcr.io/linuxserver/baseimage-alpine:3.23
 LABEL maintainer="Aterfax"
 
 COPY docker_src/s6-src/branding /etc/s6-overlay/s6-rc.d/init-adduser/branding

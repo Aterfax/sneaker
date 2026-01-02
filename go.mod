@@ -7,7 +7,7 @@ require (
 	github.com/b1naryth1ef/jambon v0.0.4-0.20220527200438-d39a4cc60cbe
 	github.com/bwmarrin/discordgo v0.29.0
 	github.com/go-chi/chi/v5 v5.2.2
-	github.com/go-chi/cors v1.2.1
+	github.com/go-chi/cors v1.2.2
 	github.com/urfave/cli/v2 v2.27.6
 )
 

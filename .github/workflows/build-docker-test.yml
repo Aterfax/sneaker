@@ -27,7 +27,7 @@ jobs:
             push: false
 
         - name: Save the artifacts for this Docker build
-          uses: actions/upload-artifact@v4
+          uses: actions/upload-artifact@v6
           with:
             name: builds
             path: build/

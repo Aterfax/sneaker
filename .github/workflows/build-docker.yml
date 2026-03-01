@@ -51,7 +51,7 @@ jobs:
               ghcr.io/aterfax/sneaker-webgci:${{ env.DATE }}
 
         - name: Save the artifacts for this Docker build
-          uses: actions/upload-artifact@v4
+          uses: actions/upload-artifact@v7
           with:
             name: builds
             path: build/
